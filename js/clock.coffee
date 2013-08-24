@@ -31,13 +31,14 @@ Clock = do ($) ->
     hoursString = hours.toString()
     @time[1] = hoursString if hoursString.length == 1
     [ @time[0], @time[1] ] = ["1","2"] if hours == 0
+    [ @time[0], @time[1] ] = [ hoursString[0], hoursString[1] ] if hoursString.length == 2
 
     if hours > 12
       hoursString = (hours - 12).toString()
       if hoursString.length == 1
         @time[3] = hoursString
       else
-       [ @time[0], @time[1] ] = [ minutesString[0], minutesString[1] ]
+       [ @time[0], @time[1] ] = [ hoursString[0], hoursString[1] ]
 
   _populateDigits: ->
     @$minutesOnes.text @time[3]
