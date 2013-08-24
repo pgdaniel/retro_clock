@@ -12,8 +12,9 @@
 .face-bottom, .face-top {
   height: 50%;
   border-radius: 10px;
-  border: 1px solid white;
+  border: 1px dotted black;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#666666), to(#666666), color-stop(.9,#000000));
+  background-color: black;
   overflow: hidden;
 }
 
@@ -37,6 +38,7 @@
 .digit-bottom {
   position: relative;
   bottom: 100%;
+  padding: 5px 0 0 52px;
 }
 
 @font-face {

@@ -40,8 +40,8 @@ Clock = do ($) ->
        [ @time[0], @time[1] ] = [ minutesString[0], minutesString[1] ]
 
   _populateDigits: ->
-    @minutesOnes = $(".minutes-ones").text @time[3]
-    @minutesTens = $(".minutes-tens").text @time[2]
-    @hoursOnes = $(".hours-ones").text @time[1]
-    @hoursTens = $(".hours-tens").text @time[0]
+    @$minutesOnes.text @time[3]
+    @$minutesTens.text @time[2]
+    @$hoursOnes.text @time[1]
+    @$hoursTens.text @time[0]
 (jQuery)
