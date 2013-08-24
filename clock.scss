@@ -12,11 +12,10 @@
 .face-bottom, .face-top {
   height: 50%;
   border-radius: 10px;
-  border: 1px dotted white;
+  border: 1px solid white;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#666666), to(#666666), color-stop(.9,#000000));
   overflow: hidden;
 }
-
 
 .face-seperator {
   display: inline-block;
@@ -42,12 +41,6 @@
   opacity: 0.755555;
   bottom: 100%;
 }
-
-.hours-tens { }
-.hours-ones { }
-.minutes-tens { }
-.minutes-ones { }
-
 
 @font-face {
     font-family: 'muncieregular';

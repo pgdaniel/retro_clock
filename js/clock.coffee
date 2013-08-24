@@ -24,18 +24,19 @@ Clock = do ($) ->
       @$minutesOnes.text minutesString
       @$minutesTens = 0
     else
-      @$minutesOnes.text minutesString[1]
       @$minutesTens.text minutesString[0]
+      @$minutesOnes.text minutesString[1]
 
   _populateHours:(hours) ->
     hoursString = hours.toString()
+    @$hoursTens = ""
     if hoursString.length == 1
       @$hoursOnes.text hoursString
       console.log hoursString
 
     else if hours == 12
-      @$hoursOnes.text hoursString[1]
-      @$hoursTens.text hoursString[0]
+      @$hoursTens.text "1"
+      @$hoursOnes.text "2"
 
     else if hours > 12
       hoursString = (hours = hours - 12).toString()

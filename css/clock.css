@@ -11,7 +11,7 @@
 .face-bottom, .face-top {
   height: 50%;
   border-radius: 10px;
-  border: 1px dotted white;
+  border: 1px solid white;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#666666), to(#666666), color-stop(0.9, black));
   overflow: hidden; }
 
