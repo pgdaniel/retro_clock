@@ -28,15 +28,17 @@ Clock = do ($) ->
      [ @time[2], @time[3] ] = [ minutesString[0], minutesString[1] ]
 
   _populateHours:(hours) ->
-    hoursString = hours.toString()
-    @time[1] = hoursString if hoursString.length == 1
-    [ @time[0], @time[1] ] = ["1","2"] if hours == 0
-    [ @time[0], @time[1] ] = [ hoursString[0], hoursString[1] ] if hoursString.length == 2
+    if hours <= 12
+      hoursString = hours.toString()
+      @time[1] = hoursString if hoursString.length == 1
+      [ @time[0], @time[1] ] = ["1","2"] if hours == 0
+      [ @time[0], @time[1] ] = [ hoursString[0], hoursString[1] ] if hoursString.length == 2
 
     if hours > 12
       hoursString = (hours - 12).toString()
       if hoursString.length == 1
-        @time[3] = hoursString
+        alert hoursString
+        @time[1] = hoursString
       else
        [ @time[0], @time[1] ] = [ hoursString[0], hoursString[1] ]
 
@@ -45,4 +47,3 @@ Clock = do ($) ->
     @$minutesTens.text @time[2]
     @$hoursOnes.text @time[1]
     @$hoursTens.text @time[0]
-(jQuery)
