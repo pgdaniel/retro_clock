@@ -1,0 +1,63 @@
+.clock {
+  height: 200px;
+  width: 800px;
+  margin: auto;
+}
+.face {
+  width: 20%;
+  height: 90%;
+  display: inline-block;
+}
+
+.face-bottom, .face-top {
+  height: 50%;
+  border-radius: 10px;
+  border: 1px dotted white;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#666666), to(#666666), color-stop(.9,#000000));
+  overflow: hidden;
+}
+
+
+.face-seperator {
+  display: inline-block;
+  height: 90%;
+  width: 1%;
+}
+
+.digit-top {
+  position: relative;
+  padding: 16px 0 0 50px;
+  color: green;
+  font-size: 199px;
+  text-shadow: -1px -1px 1px white;
+  opacity: 0.755555;
+  top: 0;
+}
+.digit-bottom {
+  position: relative;
+  padding: 0 0 0 50px;
+  color: green;
+  font-size: 199px;
+  text-shadow: -1px -1px 1px white;
+  opacity: 0.755555;
+  bottom: 100%;
+}
+
+.hours-tens { }
+.hours-ones { }
+.minutes-tens { }
+.minutes-ones { }
+
+
+@font-face {
+    font-family: 'muncieregular';
+    src: url('../fonts/muncie-webfont.eot');
+    src: url('../fonts/muncie-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/muncie-webfont.woff') format('woff'),
+         url('../fonts/muncie-webfont.ttf') format('truetype'),
+         url('../fonts/muncie-webfont.svg#muncieregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body { font-family: 'muncieregular'; }
