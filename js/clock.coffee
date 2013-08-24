@@ -9,6 +9,7 @@ Clock = do ($) ->
   $hoursOnes: null
 
   initialize: ->
+    @time = [0, 0, 0, 0]
     @$minutesOnes = $(".minutes-ones")
     @$minutesTens = $(".minutes-tens")
     @$hoursOnes = $(".hours-ones")
@@ -17,31 +18,30 @@ Clock = do ($) ->
     date = new Date
     @_populateMinutes date.getMinutes()
     @_populateHours date.getHours()
+    @_populateDigits()
 
   _populateMinutes:(minutes) ->
     minutesString = minutes.toString()
     if minutesString.length == 1
-      @$minutesOnes.text minutesString
-      @$minutesTens = 0
+      @time[3] = minutesString
     else
-      @$minutesTens.text minutesString[0]
-      @$minutesOnes.text minutesString[1]
+     [ @time[2], @time[3] ] = [ minutesString[0], minutesString[1] ]
 
   _populateHours:(hours) ->
     hoursString = hours.toString()
-    @$hoursTens = ""
-    if hoursString.length == 1
-      @$hoursOnes.text hoursString
-      console.log hoursString
+    @time[1] = hoursString if hoursString.length == 1
+    [ @time[0], @time[1] ] = ["1","2"] if hours == 0
 
-    else if hours == 12
-      @$hoursTens.text "1"
-      @$hoursOnes.text "2"
+    if hours > 12
+      hoursString = (hours - 12).toString()
+      if hoursString.length == 1
+        @time[3] = hoursString
+      else
+       [ @time[0], @time[1] ] = [ minutesString[0], minutesString[1] ]
 
-    else if hours > 12
-      hoursString = (hours = hours - 12).toString()
-      @$hoursOnes.text hoursString if hoursString.length == 1
-    else
-      @$hoursTens.text hoursString[0]
-      @$hoursOnes.text hoursString[1]
+  _populateDigits: ->
+    @minutesOnes = $(".minutes-ones").text @time[3]
+    @minutesTens = $(".minutes-tens").text @time[2]
+    @hoursOnes = $(".hours-ones").text @time[1]
+    @hoursTens = $(".hours-tens").text @time[0]
 (jQuery)

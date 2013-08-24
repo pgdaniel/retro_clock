@@ -23,22 +23,19 @@
   width: 1%;
 }
 
-.digit-top {
+.digit-top, .digit-bottom {
   position: relative;
   padding: 16px 0 0 50px;
-  color: green;
+  color: white;
   font-size: 199px;
   text-shadow: -1px -1px 1px white;
-  opacity: 0.755555;
+  // opacity: 0.755555;
+}
+.digit-top {
   top: 0;
 }
 .digit-bottom {
   position: relative;
-  padding: 0 0 0 50px;
-  color: green;
-  font-size: 199px;
-  text-shadow: -1px -1px 1px white;
-  opacity: 0.755555;
   bottom: 100%;
 }
 
