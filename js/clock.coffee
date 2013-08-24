@@ -37,7 +37,6 @@ Clock = do ($) ->
     if hours > 12
       hoursString = (hours - 12).toString()
       if hoursString.length == 1
-        alert hoursString
         @time[1] = hoursString
       else
        [ @time[0], @time[1] ] = [ hoursString[0], hoursString[1] ]
