@@ -7,6 +7,7 @@ Clock = do ($) ->
   $minutesTens: null
   $hoursTens: null
   $hoursOnes: null
+  time: null
 
   initialize: ->
     @time = [0, 0, 0, 0]
@@ -14,7 +15,15 @@ Clock = do ($) ->
     @$minutesTens = $(".minutes-tens")
     @$hoursOnes = $(".hours-ones")
     @$hoursTens = $(".hours-tens")
+    @_getTime()
 
+    delay = 1000 * 60
+    setTimeout((=>
+      setTimeout arguments.callee, delay
+      @_getTime()
+      ), delay)
+
+  _getTime: ->
     date = new Date
     @_populateMinutes date.getMinutes()
     @_populateHours date.getHours()
