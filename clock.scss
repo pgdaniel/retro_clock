@@ -3,23 +3,34 @@
   width: 800px;
   margin: auto;
 }
+
 .face {
   width: 20%;
   height: 90%;
   display: inline-block;
+  -webkit-perspective:0;
 }
 
-.face-bottom, .face-top {
+.face-bottom, .face-top, .face-back {
   height: 50%;
   border-radius: 7px;
   border: 3px solid black;
   background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#666666), to(#666666), color-stop(.9,#000000));
   background-color: black;
+  position: relative;
   overflow: hidden;
 }
 
 .face-top {
   margin-bottom: 1px;
+  -webkit-transform-origin: 0% 100% 0;
+  -webkit-transform: rotateX(0deg);
+}
+
+.face-back {
+  position: absolute;
+  width: 12%;
+  height: 27%;
 }
 
 .face-seperator {

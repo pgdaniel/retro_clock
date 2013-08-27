@@ -12,9 +12,13 @@ Clock = do ($) ->
   initialize: ->
     @time = [0, 0, 0, 0]
     @$minutesOnes = $(".minutes-ones")
+    @$minutesOnesBack = $(".minutes-ones-back")
     @$minutesTens = $(".minutes-tens")
+    @$minutesTensBack = $(".minutes-tens-back")
     @$hoursOnes = $(".hours-ones")
+    @$hoursOnesBack = $(".hours-ones-back")
     @$hoursTens = $(".hours-tens")
+    @$hoursTensBack = $(".hours-tens-back")
     @_getTime()
 
     delay = 1000 * 60
@@ -51,7 +55,20 @@ Clock = do ($) ->
        [ @time[0], @time[1] ] = [ hoursString[0], hoursString[1] ]
 
   _populateDigits: ->
-    @$minutesOnes.text @time[3]
-    @$minutesTens.text @time[2]
-    @$hoursOnes.text @time[1]
-    @$hoursTens.text @time[0]
+    timeMinsOnes = parseInt(@time[3])
+    timeMinsOnesBack = if timeMinsOnes < 8  then timeMinsOnes + 1 else  0
+    timeMinsTens = parseInt(@time[2])
+    timeMinsTensBack = if timeMinsTens < 4 then timeMinsTens + 1 else 0
+    timeHoursOnes = parseInt(@time[1])
+    timeHoursOnesBack = if timeHoursOnes < 8 then timeHoursOnes + 1 else 0
+    timeHoursTens = parseInt(@time[0])
+    timeHoursTensBack = if timeHoursTens < 1 then timeHoursTens + 1 else 0
+
+    @$minutesOnes.text(timeMinsOnes)
+    @$minutesOnesBack.text(timeMinsOnesBack)
+    @$minutesTens.text(timeMinsTens)
+    @$minutesTensBack.text(timeMinsTensBack)
+    @$hoursOnes.text(timeHoursOnes)
+    @$hoursOnesBack.text(timeHoursOnesBack)
+    @$hoursTens.text(timeHoursTens)
+    @$hoursTensBack.text(timeHoursTensBack)
